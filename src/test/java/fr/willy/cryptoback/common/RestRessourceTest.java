@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import java.io.UnsupportedEncodingException;
-import java.util.UUID;
 import java.util.regex.Pattern;
 
 @SpringBootTest(classes = CryptobackApplication.class)
