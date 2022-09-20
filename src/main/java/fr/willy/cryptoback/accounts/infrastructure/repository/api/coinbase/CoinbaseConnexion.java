@@ -2,6 +2,7 @@ package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.basic.PaginatedData;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.exception.ConnexionError;
@@ -31,7 +32,7 @@ import java.util.*;
 public class CoinbaseConnexion {
     private String secretKey = System.getProperty("cbSecretKey");
     private String apiKey = System.getProperty("cbApiKey");
-    private String baseUrl = "https://api.coinbase.com/v2/";
+    private String baseUrl = "https://api.coinbase.com";
     private long initTimeStamp;
     private final static HttpClient client = HttpClient.newHttpClient();
 
@@ -44,15 +45,19 @@ public class CoinbaseConnexion {
      * @param resourceUrl API resource path
      * @return get request response
      */
-    private HttpResponse<String> getRequest(String resourceUrl, HashMap<String,String> queryParameters)  {
+    private HttpResponse<String> getRequest(String resourceUrl, HashMap<String,String> queryParameters) {
+        log.info("resourceUrl : [{}]", resourceUrl);
+        log.info("secretKey : {}", secretKey);
+        log.info("apiKey : {}", apiKey);
+        log.info("baseUrl : {}", baseUrl);
 
-        final long timestamp = initTimeStamp == 0L ? Instant.now().getEpochSecond() : initTimeStamp;
+        final long timestamp = Instant.now().getEpochSecond();
         final String signature = getSignature(timestamp, HttpMethod.GET, resourceUrl, "");
 
         if (queryParameters != null && !queryParameters.isEmpty()) {
             Iterator<Map.Entry<String, String>> it = queryParameters.entrySet().iterator();
             StringBuilder resourceUrlBuilder = new StringBuilder(resourceUrl);
-            while (it.hasNext()){
+            while (it.hasNext()) {
                 Map.Entry<String, String> elem = it.next();
                 resourceUrlBuilder.append("?").append(elem.getKey()).append("=").append(elem.getValue());
             }
@@ -85,6 +90,8 @@ public class CoinbaseConnexion {
      */
     private String getSignature(long timestamp, HttpMethod httpMethod, String resourcePath, String payload) {
 
+        log.debug("timestamp : [{}] - httpMethod : [{}] - resourcePath : [{}] - payload : [{}]", timestamp, httpMethod, resourcePath, payload);
+
         String prehash = timestamp + httpMethod.toString() + resourcePath;
 
         if (httpMethod.equals(HttpMethod.POST) || httpMethod.equals(HttpMethod.PUT)) {
@@ -111,8 +118,8 @@ public class CoinbaseConnexion {
         return Hex.encodeHexString(hash);
     }
 
-    protected <T> List<T> getPaginatedData(String ressourceUrl, Class<T> clazz) {
-        log.info("ressourceUrl : {}", ressourceUrl);
+    public <T> List<T> getPaginatedData(String ressourceUrl, Class<T> clazz) {
+        log.info("getPaginatedData : ressourceUrl = [{}]", ressourceUrl);
 
         boolean isANextPage;
         HttpResponse<String> getRequestResponse;
@@ -123,7 +130,7 @@ public class CoinbaseConnexion {
             .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTime())
             .create();
         Type typeToken = TypeToken.getParameterized(PaginatedData.class, clazz).getType();
-        List<T> data = new ArrayList<>(30);
+        List<T> data = new ArrayList<>(100);
 
         do {
             getRequestResponse = getRequest(ressourceUrl);
@@ -133,7 +140,12 @@ public class CoinbaseConnexion {
             }
 
             response = getRequestResponse.body();
+
+            JsonElement debug = gson.fromJson(response, JsonElement.class);
+            log.info(gson.toJson(debug));
+
             paginatedData = gson.fromJson(response, typeToken);
+
 
             data.addAll(paginatedData.data());
 

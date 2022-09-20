@@ -9,35 +9,679 @@
   },
   "data": [
     {
-      "id": "58542935-67b5-56e1-a3f9-42686e07fa40",
-      "name": "My Vault",
-      "primary": false,
-      "type": "vault",
-      "currency": "BTC",
-      "balance": {
-        "amount": "4.00000000",
-        "currency": "BTC"
-      },
-      "created_at": "2015-01-31T20:49:02Z",
-      "updated_at": "2015-01-31T20:49:02Z",
-      "resource": "account",
-      "resource_path": "/v2/accounts/58542935-67b5-56e1-a3f9-42686e07fa40",
-      "ready": true
-    },
-    {
-      "id": "2bbf394c-193b-5b2a-9155-3b4732659ede",
-      "name": "My Wallet",
+      "id": "5227ea6a-f656-51b8-9e0b-1243332e55b3",
+      "name": "Portefeuille en BUSD",
       "primary": true,
       "type": "wallet",
-      "currency": "BTC",
-      "balance": {
-        "amount": "39.59000000",
-        "currency": "BTC"
+      "currency": {
+        "code": "BUSD",
+        "name": "Binance USD",
+        "color": "#F0B90B",
+        "sort_index": 219,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "6125c89b-d63e-53f2-aa0a-d5ea25ba698d",
+        "slug": "binance-usd"
       },
-      "created_at": "2015-01-31T20:49:02Z",
-      "updated_at": "2015-01-31T20:49:02Z",
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "BUSD"
+      },
+      "created_at": "2022-05-04T09:41:28Z",
+      "updated_at": "2022-05-04T09:41:28Z",
       "resource": "account",
-      "resource_path": "/v2/accounts/2bbf394c-193b-5b2a-9155-3b4732659ede"
+      "resource_path": "/v2/accounts/5227ea6a-f656-51b8-9e0b-1243332e55b3",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "35cdd283-f5bf-5047-bc13-ef1f8bea9db9",
+      "name": "Portefeuille en TRIBE",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "TRIBE",
+        "name": "Tribe",
+        "color": "#178DD0",
+        "sort_index": 200,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "09fa97ba-0baa-554b-a4a7-bfc4d00f4086",
+        "slug": "tribe"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "TRIBE"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/35cdd283-f5bf-5047-bc13-ef1f8bea9db9",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "020d027c-5db2-55ef-8fd9-2cb51d9173f9",
+      "name": "Portefeuille en CRO",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "CRO",
+        "name": "Crypto.com Coin",
+        "color": "#1D3F65",
+        "sort_index": 234,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "2d6b2001-dd44-5f5c-bc33-ed43d3e3c8f0",
+        "slug": "crypto-com-coin"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "CRO"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/020d027c-5db2-55ef-8fd9-2cb51d9173f9",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "2c305bfc-7e53-5fe7-8faf-9af35edc6a54",
+      "name": "Portefeuille en DDX",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "DDX",
+        "name": "DerivaDAO",
+        "color": "#2D1680",
+        "sort_index": 210,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "83cb4677-21c9-557f-9baa-969b3fee1a34",
+        "slug": "derivadao"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "DDX"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/2c305bfc-7e53-5fe7-8faf-9af35edc6a54",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "9d6b8646-d47b-56a7-87f9-78dc5f85a9c7",
+      "name": "Portefeuille en SUPER",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "SUPER",
+        "name": "SuperFarm",
+        "color": "#6723F5",
+        "sort_index": 291,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "9f1b558c-cdd3-5ffe-9d69-0e34a62e82a7",
+        "slug": "superfarm"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "SUPER"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/9d6b8646-d47b-56a7-87f9-78dc5f85a9c7",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "a88d3b3d-6aca-57ad-9625-e3a579c881c4",
+      "name": "Portefeuille en ASM",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "ASM",
+        "name": "Assemble Protocol",
+        "color": "#0085FE",
+        "sort_index": 197,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "49e1401a-48a0-58ac-881d-03ef6894a038",
+        "slug": "assemble-protocol"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "ASM"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/a88d3b3d-6aca-57ad-9625-e3a579c881c4",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "f740efef-98ba-5103-8a56-7d5e68c6fb55",
+      "name": "Portefeuille en GALA",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "GALA",
+        "name": "Gala",
+        "color": "#0A0B0D",
+        "sort_index": 275,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "fa0bd074-1230-5a14-bdd3-15f5c9600d8d",
+        "slug": "gala"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "GALA"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/f740efef-98ba-5103-8a56-7d5e68c6fb55",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "2d8d34dc-5dce-5dc2-a3e1-afa3c8c7072a",
+      "name": "Portefeuille en FOX",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "FOX",
+        "name": "ShapeShift FOX Token",
+        "color": "#386FF9",
+        "sort_index": 258,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "17278d3a-ecf4-584f-abe1-903f2b06aad5",
+        "slug": "fox-token"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "FOX"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/2d8d34dc-5dce-5dc2-a3e1-afa3c8c7072a",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "0c5c3a69-33dd-5605-bb8e-26821f92550e",
+      "name": "Portefeuille en API3",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "API3",
+        "name": "API3",
+        "color": "#0A0B0D",
+        "sort_index": 264,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "4e181288-ccce-562d-8c4f-787afa655204",
+        "slug": "api3"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "API3"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/0c5c3a69-33dd-5605-bb8e-26821f92550e",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "f5988089-c35d-59e5-9ef6-8f1f84d53c21",
+      "name": "Portefeuille en IOTX",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "IOTX",
+        "name": "IoTeX",
+        "color": "#19263B",
+        "sort_index": 202,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "56f8ea19-7e6a-5e38-ac47-fc9762b955ae",
+        "slug": "iotex"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "IOTX"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/f5988089-c35d-59e5-9ef6-8f1f84d53c21",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "194e0928-7a39-5512-83a0-7e6bf2939618",
+      "name": "Portefeuille en ACH",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "ACH",
+        "name": "Alchemy Pay",
+        "color": "#2E3567",
+        "sort_index": 196,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "045e4fab-f2ca-58a3-ac2b-8c47c5d23968",
+        "slug": "alchemy-pay"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "ACH"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/194e0928-7a39-5512-83a0-7e6bf2939618",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "5efe0cf9-469e-5d5f-91ee-27147dde7214",
+      "name": "Portefeuille en MASK",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "MASK",
+        "name": "Mask Network",
+        "color": "#1C68F3",
+        "sort_index": 191,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "45ce7f01-2962-5576-8dfd-449e4a49b75d",
+        "slug": "mask-network"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "MASK"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/5efe0cf9-469e-5d5f-91ee-27147dde7214",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "a899aa67-0c68-5386-9ee9-76ac9a7a6cbf",
+      "name": "Portefeuille en FARM",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "FARM",
+        "name": "Harvest Finance",
+        "color": "#BDE4E3",
+        "sort_index": 190,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "7ea0bd74-3cab-5bf8-94e2-f0c0b3896f07",
+        "slug": "harvest-finance"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "FARM"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/a899aa67-0c68-5386-9ee9-76ac9a7a6cbf",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "0ffb29ba-917d-5506-995b-f7a96cd0dace",
+      "name": "Portefeuille en VGX",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "VGX",
+        "name": "Voyager Token",
+        "color": "#4A4AD5",
+        "sort_index": 252,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "6f45890a-c456-55da-bcfe-b10ced22818c",
+        "slug": "voyager-token"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "VGX"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/0ffb29ba-917d-5506-995b-f7a96cd0dace",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "1f82fc3c-fc9f-5abe-a14f-187ad1d81401",
+      "name": "Portefeuille en MLN",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "MLN",
+        "name": "Enzyme",
+        "color": "#3B82F6",
+        "sort_index": 145,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "15cbd0cf-ac58-512f-87f7-8078fa9a3f2a",
+        "slug": "enzyme"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "MLN"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/1f82fc3c-fc9f-5abe-a14f-187ad1d81401",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "c1fadfd9-8447-5a04-af7e-bc9364bc3527",
+      "name": "Portefeuille en SPELL",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "SPELL",
+        "name": "Spell Token",
+        "color": "#211A45",
+        "sort_index": 278,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "43effdcf-ee0b-5b00-bba7-271865f42c33",
+        "slug": "spell-token"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "SPELL"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/c1fadfd9-8447-5a04-af7e-bc9364bc3527",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "40e57dfc-28b2-5ba8-b6fd-6c60f22dbe0b",
+      "name": "Portefeuille en UST",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "UST",
+        "name": "TerraUSD",
+        "color": "#5493F7",
+        "sort_index": 203,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "05120843-11c1-5b66-9df2-395db6d7ed6b",
+        "slug": "terraclassicusd"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "UST"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/40e57dfc-28b2-5ba8-b6fd-6c60f22dbe0b",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "0e1ad3e4-12f9-52c4-b456-751c36f71665",
+      "name": "Portefeuille en CHZ",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "CHZ",
+        "name": "Chiliz",
+        "color": "#B02728",
+        "sort_index": 184,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "3b6a0532-d638-58ab-b7f8-16ead09d686d",
+        "slug": "chiliz"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "CHZ"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/0e1ad3e4-12f9-52c4-b456-751c36f71665",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "2a1f085c-7abd-5b4f-b9c7-2ef81ae2cd3b",
+      "name": "Portefeuille en RAD",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "RAD",
+        "name": "Radicle",
+        "color": "#53D855",
+        "sort_index": 209,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "aa75e77c-c936-58a2-9d3c-afb7f23886e1",
+        "slug": "radicle"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "RAD"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/2a1f085c-7abd-5b4f-b9c7-2ef81ae2cd3b",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "3108b0c9-bcfe-5c46-9276-28835021a0d4",
+      "name": "Portefeuille en JASMY",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "JASMY",
+        "name": "JasmyCoin",
+        "color": "#F7941C",
+        "sort_index": 221,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "c0158cc5-1f31-5662-9da5-c06867f2baad",
+        "slug": "jasmy"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "JASMY"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/3108b0c9-bcfe-5c46-9276-28835021a0d4",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "f7541d9d-44d1-5343-9fd6-4bcaf763cd21",
+      "name": "Portefeuille en FX",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "FX",
+        "name": "Function X",
+        "color": "#181818",
+        "sort_index": 230,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "a2b48bde-1149-5cb7-9ddb-57563bb4d63b",
+        "slug": "function-x"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "FX"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/f7541d9d-44d1-5343-9fd6-4bcaf763cd21",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "9bec307a-b800-5ffb-ae63-fdf5c98e7fc7",
+      "name": "Portefeuille en BOND",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "BOND",
+        "name": "BarnBridge",
+        "color": "#FF4339",
+        "sort_index": 187,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "b5652bd9-8ea8-5451-b153-96fbcba1ace5",
+        "slug": "barnbridge"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "BOND"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/9bec307a-b800-5ffb-ae63-fdf5c98e7fc7",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "841acc09-c393-56c0-b080-bf1c4b879191",
+      "name": "Portefeuille en WCFG",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "WCFG",
+        "name": "Wrapped Centrifuge",
+        "color": "#000000",
+        "sort_index": 220,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "19f93d90-a629-53d3-b1c1-45b874e9f125",
+        "slug": "wrapped-centrifuge"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "WCFG"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/841acc09-c393-56c0-b080-bf1c4b879191",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "51dc8f32-8cc3-5f20-8e7c-9c374477438d",
+      "name": "Portefeuille en KEEP",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "KEEP",
+        "name": "Keep Network",
+        "color": "#0A0806",
+        "sort_index": 185,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "cb05fece-8b7f-5717-a317-df3979b4ce12",
+        "slug": "keep-network"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "KEEP"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/51dc8f32-8cc3-5f20-8e7c-9c374477438d",
+      "allow_deposits": true,
+      "allow_withdrawals": true
+    },
+    {
+      "id": "147fd648-2a34-533f-a8c8-4631b5e247b6",
+      "name": "Portefeuille en YFII",
+      "primary": true,
+      "type": "wallet",
+      "currency": {
+        "code": "YFII",
+        "name": "DFI.Money",
+        "color": "#FA2978",
+        "sort_index": 153,
+        "exponent": 8,
+        "type": "crypto",
+        "address_regex": "^(?:0x)?[0-9a-fA-F]{40}$",
+        "asset_id": "9d5c9eca-87ec-5ad0-846c-aeae910d4a30",
+        "slug": "yearn-finance-ii"
+      },
+      "balance": {
+        "amount": "0.00000000",
+        "currency": "YFII"
+      },
+      "created_at": "2022-01-12T16:21:39Z",
+      "updated_at": "2022-01-12T16:21:39Z",
+      "resource": "account",
+      "resource_path": "/v2/accounts/147fd648-2a34-533f-a8c8-4631b5e247b6",
+      "allow_deposits": true,
+      "allow_withdrawals": true
     }
   ]
 }

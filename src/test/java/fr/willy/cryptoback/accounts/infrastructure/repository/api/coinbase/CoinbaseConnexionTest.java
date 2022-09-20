@@ -65,7 +65,7 @@ class CoinbaseConnexionTest {
         List<AccountFomCBEntity> accounts = coinbaseConnexion.getPaginatedData("accounts", AccountFomCBEntity.class);
 
         assertThat(accounts).allMatch(accountEntity -> accountEntity.id() != null);
-        assertThat(accounts).allMatch(accountEntity -> accountEntity.name() != null);
+        assertThat(accounts).allMatch(accountEntity -> accountEntity.currency().name() != null);
     }
 
 

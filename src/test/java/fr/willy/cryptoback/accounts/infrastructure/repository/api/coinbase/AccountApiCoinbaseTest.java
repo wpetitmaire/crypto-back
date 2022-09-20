@@ -2,6 +2,8 @@ package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
 
 import fr.willy.cryptoback.CryptobackApplication;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
+import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.CurrencyEntity;
+import fr.willy.cryptoback.accounts.infrastructure.repository.entity.AccountEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -27,15 +29,16 @@ class AccountApiCoinbaseTest {
 
     @Test
     public void should_transform_coinbase_objects_to_domain_objects() {
-        Mockito.when(coinbaseConnexion.getPaginatedData(ACCOUNTS.name(), AccountFomCBEntity.class))
+        Mockito.when(coinbaseConnexion.getPaginatedData(ACCOUNTS.getUrl(), AccountFomCBEntity.class))
             .thenReturn(
                 List.of(
-                    new AccountFomCBEntity("BIT", "Bitcoin"),
-                    new AccountFomCBEntity("ETH", "Ethereum")
+                    new AccountFomCBEntity("ffcee710-98d7-4889-99b7-8dca658d46d0", new CurrencyEntity("BTC", "Bitcoin")),
+                    new AccountFomCBEntity("4e72a120-c581-4624-b674-5d5aef765043", new CurrencyEntity("ETH", "Ethereum"))
                 )
             );
 
-        assertThat(accountApiCoinbase.importAccounts())
+        List<AccountEntity> actual = accountApiCoinbase.importAccounts();
+        assertThat(actual)
             .hasSize(2);
     }
 

@@ -1,14 +1,16 @@
 package fr.willy.cryptoback.accounts.infrastructure.repository.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;
 
-@Data
+@Getter
+@Accessors(fluent = true)
 @NoArgsConstructor
 @ToString
 @Entity
@@ -23,14 +25,13 @@ public class AccountEntity {
     )
     @Column(name = "uuid", updatable = false, nullable = false)
     private UUID uuid;
-    @GeneratedValue
-    @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
-    private String code;
-    private String libel;
+    private String currency;
+    private String name;
+    private String provider;
 
-    public AccountEntity(String code, String libel) {
-        this.code = code;
-        this.libel = libel;
+    public AccountEntity(String currency, String name, String provider) {
+        this.currency = currency;
+        this.name = name;
+        this.provider = provider;
     }
 }

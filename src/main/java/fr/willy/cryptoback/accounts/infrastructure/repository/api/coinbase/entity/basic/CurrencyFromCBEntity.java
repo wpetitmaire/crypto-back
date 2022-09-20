@@ -1,4 +1,4 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity;
+package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.basic;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountFomCBEntity {
-    private String id;
-    private CurrencyEntity currency;
+class CurrencyFromCBEntity {
+    private String code;
+    private String name;
 }
-

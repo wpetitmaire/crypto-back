@@ -1,6 +1,6 @@
 package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
 
-import fr.willy.cryptoback.accounts.infrastructure.repository.PostgreAccountsRepository;
+import fr.willy.cryptoback.accounts.infrastructure.repository.PostgreAccountRepository;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.AccountApi;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
 import fr.willy.cryptoback.accounts.infrastructure.repository.entity.AccountEntity;
@@ -20,27 +20,40 @@ import static fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbas
 @Log4j2
 public class AccountApiCoinbase implements AccountApi {
 
-    private final PostgreAccountsRepository postgreAccountRepository;
+    private final PostgreAccountRepository postgreAccountRepository;
     private final CoinbaseConnexion coinbaseConnexion;
 
     @Getter
     private final String AccountName = "coinbase";
 
-    private static AccountEntity transformToDomainObject(AccountFomCBEntity accountFomCBEntity) {
-        return new AccountEntity(accountFomCBEntity.id(), accountFomCBEntity.name());
+    private AccountEntity transformToDomainObject(AccountFomCBEntity accountFomCBEntity) {
+
+        log.info("libelle : [{}] - code : [{}]", accountFomCBEntity.currency().name(), accountFomCBEntity.id());
+
+        return new AccountEntity(
+            accountFomCBEntity.currency().code(),
+            accountFomCBEntity.currency().name(),
+            "COINBASE"
+        );
     }
 
     @PostConstruct
     public void onStart() {
+        log.info("-> onstart");
         postgreAccountRepository.addAccountApi(this);
     }
 
     @Override
     public List<AccountEntity> importAccounts() {
-        return coinbaseConnexion.getPaginatedData(ACCOUNTS.name(), AccountFomCBEntity.class)
+        log.info("-> importAccounts");
+        List<AccountEntity> collect = coinbaseConnexion.getPaginatedData(ACCOUNTS.getUrl(), AccountFomCBEntity.class)
             .stream()
-            .map(AccountApiCoinbase::transformToDomainObject)
+            .map(this::transformToDomainObject)
             .collect(Collectors.toList());
+
+        log.info("FIN");
+
+        return collect;
     }
 
 }

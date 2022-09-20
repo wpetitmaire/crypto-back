@@ -9,8 +9,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountFomCBEntity {
-    private String id;
-    private CurrencyEntity currency;
+public class CurrencyEntity {
+    private String code;
+    private String name;
 }
-

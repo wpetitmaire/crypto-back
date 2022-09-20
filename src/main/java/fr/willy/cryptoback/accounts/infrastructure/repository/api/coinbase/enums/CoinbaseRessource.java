@@ -1,9 +1,15 @@
 package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.enums;
 
+import lombok.Getter;
+
 public enum CoinbaseRessource {
 
-    ACCOUNTS();
+    ACCOUNTS("/v2/accounts");
 
-    CoinbaseRessource() {
+    @Getter
+    private String url;
+
+    CoinbaseRessource(String ressourceUrl) {
+        url = ressourceUrl;
     }
 }
