@@ -43,6 +43,7 @@ public class PostgreAccountRepository implements AccountRepository {
 
         log.info(accountEntityList);
 
+        accountsRepository.deleteAll();
         accountsRepository.saveAll(accountEntityList);
 
 //        accountApiList.values().forEach(accountApi -> AccountsRepository.saveAll(accountApi.importAccounts()));
