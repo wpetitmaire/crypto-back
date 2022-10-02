@@ -23,7 +23,7 @@ public class PostgreAccountRepository implements AccountRepository {
     private final Map<String, AccountApi> accountApiList = new HashMap<>();
 
     public void addAccountApi(AccountApi accountApi) {
-        accountApiList.put(accountApi.getAccountName(), accountApi);
+        accountApiList.put(accountApi.getProviderName(), accountApi);
     }
 
     @Override
@@ -48,4 +48,5 @@ public class PostgreAccountRepository implements AccountRepository {
 
 //        accountApiList.values().forEach(accountApi -> AccountsRepository.saveAll(accountApi.importAccounts()));
     }
+
 }

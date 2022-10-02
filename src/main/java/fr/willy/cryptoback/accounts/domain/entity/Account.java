@@ -5,6 +5,8 @@ import fr.willy.cryptoback.accounts.infrastructure.repository.entity.AccountEnti
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter(AccessLevel.NONE)
 @AllArgsConstructor
@@ -16,10 +18,14 @@ public class Account {
     String id;
     String code;
     String libel;
+    BigDecimal balance;
+    BigDecimal price;
 
     public Account(AccountEntity accountEntity) {
         id = new IdentifiantCrypto(accountEntity.provider(), accountEntity.currency()).value();
         code = accountEntity.currency();
         libel = accountEntity.name();
+        balance = accountEntity.balance();
+        price = accountEntity.price();
     }
 }

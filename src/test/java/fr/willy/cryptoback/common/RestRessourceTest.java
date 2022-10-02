@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import fr.willy.cryptoback.CryptobackApplication;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.CoinbaseConnexion;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
+import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.BalanceEntity;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.CurrencyEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
@@ -19,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -61,11 +63,11 @@ public class RestRessourceTest {
     }
 
     protected void mockGetPaginationAccountsFromCB() {
-        Mockito.when(coinbaseConnexion.getPaginatedData(ACCOUNTS.getUrl(), AccountFomCBEntity.class))
+        Mockito.when(coinbaseConnexion.getPaginatedData(ACCOUNTS.url(), AccountFomCBEntity.class))
             .thenReturn(List.of(
-                new AccountFomCBEntity("7e4d7786-a660-42ea-b524-da49889b7c50", new CurrencyEntity("BTC", "Bitcoin")),
-                new AccountFomCBEntity("4f15f685-bad3-4514-8ef6-e9dd573ad3eb", new CurrencyEntity("ETH", "Ethereum")),
-                new AccountFomCBEntity("c760f9ac-a53d-4479-b37a-cd2ae7cc405c", new CurrencyEntity("SHIB", "Shiba"))
+                new AccountFomCBEntity("7e4d7786-a660-42ea-b524-da49889b7c50", new CurrencyEntity("BTC", "Bitcoin"), new BalanceEntity(BigDecimal.TEN)),
+                new AccountFomCBEntity("4f15f685-bad3-4514-8ef6-e9dd573ad3eb", new CurrencyEntity("ETH", "Ethereum"), new BalanceEntity(BigDecimal.TEN)),
+                new AccountFomCBEntity("c760f9ac-a53d-4479-b37a-cd2ae7cc405c", new CurrencyEntity("SHIB", "Shiba"), new BalanceEntity(BigDecimal.TEN))
             ));
     }
 }

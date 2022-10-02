@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
@@ -28,10 +29,20 @@ public class AccountEntity {
     private String currency;
     private String name;
     private String provider;
+    private BigDecimal balance;
+    private BigDecimal price;
 
-    public AccountEntity(String currency, String name, String provider) {
+    public AccountEntity(
+        String currency,
+        String name,
+        String provider,
+        BigDecimal balance,
+        BigDecimal price
+    ) {
         this.currency = currency;
         this.name = name;
         this.provider = provider;
+        this.balance = balance;
+        this.price = price;
     }
 }

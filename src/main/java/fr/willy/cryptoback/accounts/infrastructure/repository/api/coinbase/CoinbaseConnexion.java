@@ -156,4 +156,31 @@ public class CoinbaseConnexion {
         return data;
     }
 
+    public <T> T getRessourceFromUrl(String ressource, Class<T> clazz) {
+        log.info("getRessourceFromUrl : ressource=[{}] - clazz=[{}]", ressource, clazz.getName());
+
+        HttpResponse<String> getRequestResponse;
+        String response;
+        Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTime())
+            .create();
+//        Type typeToken = TypeToken.getParameterized(PaginatedData.class, clazz).getType();
+        Type typeToken = TypeToken.get(clazz).getType();
+
+
+        getRequestResponse = getRequest(ressource);
+
+        response = getRequestResponse.body();
+
+        JsonElement debug = gson.fromJson(response, JsonElement.class);
+        log.info(gson.toJson(debug));
+
+        T fromJson = gson.fromJson(response, typeToken);
+
+        log.info(fromJson);
+
+        return fromJson;
+    }
+
 }

@@ -10,10 +10,12 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.enums.CoinbaseRessource.ACCOUNTS;
+import static java.math.BigDecimal.ZERO;
 
 @Service
 @RequiredArgsConstructor
@@ -22,18 +24,23 @@ public class AccountApiCoinbase implements AccountApi {
 
     private final PostgreAccountRepository postgreAccountRepository;
     private final CoinbaseConnexion coinbaseConnexion;
+    private final CoinbasePrice coinbasePrice;
 
     @Getter
-    private final String AccountName = "coinbase";
+    private final String providerName = "coinbase";
 
     private AccountEntity transformToDomainObject(AccountFomCBEntity accountFomCBEntity) {
 
         log.info("libelle : [{}] - code : [{}]", accountFomCBEntity.currency().name(), accountFomCBEntity.id());
 
+        log.info(accountFomCBEntity.balance().amount().compareTo(ZERO));
+
         return new AccountEntity(
             accountFomCBEntity.currency().code(),
             accountFomCBEntity.currency().name(),
-            "COINBASE"
+            "COINBASE",
+            accountFomCBEntity.balance().amount(),
+            coinbasePrice.getPrice(accountFomCBEntity.currency().code())
         );
     }
 
@@ -46,14 +53,21 @@ public class AccountApiCoinbase implements AccountApi {
     @Override
     public List<AccountEntity> importAccounts() {
         log.info("-> importAccounts");
-        List<AccountEntity> collect = coinbaseConnexion.getPaginatedData(ACCOUNTS.getUrl(), AccountFomCBEntity.class)
+
+        return coinbaseConnexion.getPaginatedData(ACCOUNTS.url(), AccountFomCBEntity.class)
             .stream()
+            .filter(accountFomCBEntity -> {
+
+                log.info(accountFomCBEntity.balance());
+
+                return accountFomCBEntity.balance().amount().compareTo(ZERO) != 0;
+            })
             .map(this::transformToDomainObject)
             .collect(Collectors.toList());
-
-        log.info("FIN");
-
-        return collect;
     }
 
+
+    public BigDecimal getCurrencyPrice(String currency) {
+        return coinbasePrice.getPrice(currency);
+    }
 }
