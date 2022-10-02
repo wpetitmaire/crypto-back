@@ -21,8 +21,6 @@ class AccountApiCoinbaseTest extends RestRessourceTest {
 
     @Autowired
     private AccountApiCoinbase accountApiCoinbase;
-    @Autowired
-    private CoinbaseConnexion coinbaseConnexion;
 
     @Test
     public void should_transform_coinbase_objects_to_domain_objects() {
