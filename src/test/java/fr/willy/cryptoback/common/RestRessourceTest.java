@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import fr.willy.cryptoback.CryptobackApplication;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.CoinbaseConnexion;
+import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.CoinbasePrice;
 import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
@@ -37,6 +38,8 @@ public class RestRessourceTest {
     protected ObjectWriter objectWriter;
     @MockBean
     CoinbaseConnexion coinbaseConnexion;
+    @MockBean
+    CoinbasePrice coinbasePrice;
 
     @BeforeEach
     public void setup() {
@@ -79,5 +82,16 @@ public class RestRessourceTest {
                     new AccountFomCBEntity.Balance(BigDecimal.TEN)
                 )
             ));
+    }
+
+    protected void mockPriceFromCB() {
+        Mockito.when(coinbasePrice.getPrice("BTC"))
+            .thenReturn(BigDecimal.ONE);
+
+        Mockito.when(coinbasePrice.getPrice("ETH"))
+            .thenReturn(BigDecimal.ONE);
+
+        Mockito.when(coinbasePrice.getPrice("SHIB"))
+            .thenReturn(BigDecimal.ONE);
     }
 }

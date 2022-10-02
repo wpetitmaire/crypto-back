@@ -12,6 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MvcResult;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,6 +29,7 @@ class GetAccountRestRessourceTest extends RestRessourceTest {
     void should_return_ok_with_the_account_list() throws Exception {
 
         mockGetPaginationAccountsFromCB();
+        mockPriceFromCB();
 
         GetAccountsRestResponse getAccountsRestResponse = extractResponse(getAccountsMvcResult(), GetAccountsRestResponse.class);
 
@@ -35,7 +37,10 @@ class GetAccountRestRessourceTest extends RestRessourceTest {
         assertThat(getAccountsRestResponse.accounts())
             .allMatch(account -> BooleanUtils.isTrue(account.getId() != null))
             .allMatch(account -> BooleanUtils.isTrue(account.getCode() != null))
-            .allMatch(account -> BooleanUtils.isTrue(account.getLibel() != null));
+            .allMatch(account -> BooleanUtils.isTrue(account.getLibel() != null))
+            .allMatch(account -> BooleanUtils.isTrue(account.getBalance() != null))
+            .allMatch(account -> account.getBalance().compareTo(BigDecimal.ZERO) > 0)
+            .allMatch(account -> BooleanUtils.isTrue(account.getPrice() != null));
 
         List<String> accountIds = getAccountsRestResponse.accounts().stream()
             .map(Account::getId)
