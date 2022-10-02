@@ -40,7 +40,8 @@ public class AccountApiCoinbase implements AccountApi {
             accountFomCBEntity.currency().name(),
             "COINBASE",
             accountFomCBEntity.balance().amount(),
-            coinbasePrice.getPrice(accountFomCBEntity.currency().code())
+            coinbasePrice.getPrice(accountFomCBEntity.currency().code()),
+            accountFomCBEntity.currency().exponent()
         );
     }
 

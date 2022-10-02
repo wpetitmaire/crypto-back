@@ -20,6 +20,7 @@ public class Account {
     String libel;
     BigDecimal balance;
     BigDecimal price;
+    int exponent;
 
     public Account(AccountEntity accountEntity) {
         id = new IdentifiantCrypto(accountEntity.provider(), accountEntity.currency()).value();
@@ -27,5 +28,6 @@ public class Account {
         libel = accountEntity.name();
         balance = accountEntity.balance();
         price = accountEntity.price();
+        exponent = accountEntity.exponent();
     }
 }

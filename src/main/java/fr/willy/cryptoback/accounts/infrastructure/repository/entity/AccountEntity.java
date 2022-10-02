@@ -31,18 +31,21 @@ public class AccountEntity {
     private String provider;
     private BigDecimal balance;
     private BigDecimal price;
+    private int exponent;
 
     public AccountEntity(
         String currency,
         String name,
         String provider,
         BigDecimal balance,
-        BigDecimal price
+        BigDecimal price,
+        int exponent
     ) {
         this.currency = currency;
         this.name = name;
         this.provider = provider;
         this.balance = balance;
         this.price = price;
+        this.exponent = exponent;
     }
 }
