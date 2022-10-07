@@ -1,6 +1,6 @@
 package fr.willy.cryptoback.accounts.infrastructure.input.rest;
 
-import fr.willy.cryptoback.accounts.domain.entity.Account;
+import fr.willy.cryptoback.accounts.infrastructure.output.rest.model.AccountResponse;
 import fr.willy.cryptoback.accounts.infrastructure.output.rest.model.GetAccountsRestResponse;
 import fr.willy.cryptoback.common.RestRessourceTest;
 import lombok.extern.log4j.Log4j2;
@@ -33,17 +33,17 @@ class GetAccountRestRessourceTest extends RestRessourceTest {
 
         GetAccountsRestResponse getAccountsRestResponse = extractResponse(getAccountsMvcResult(), GetAccountsRestResponse.class);
 
-        assertThat(getAccountsRestResponse.retrieveDate()).isNotNull();
-        assertThat(getAccountsRestResponse.accounts())
+        assertThat(getAccountsRestResponse.getRetrieveDate()).isNotNull();
+        assertThat(getAccountsRestResponse.getAccounts())
             .allMatch(account -> BooleanUtils.isTrue(account.getId() != null))
             .allMatch(account -> BooleanUtils.isTrue(account.getCode() != null))
             .allMatch(account -> BooleanUtils.isTrue(account.getLibel() != null))
             .allMatch(account -> BooleanUtils.isTrue(account.getBalance() != null))
-            .allMatch(account -> account.getBalance().compareTo(BigDecimal.ZERO) > 0)
+            .allMatch(account -> account.getBalance().getValue().compareTo(BigDecimal.ZERO) > 0)
             .allMatch(account -> BooleanUtils.isTrue(account.getPrice() != null));
 
-        List<String> accountIds = getAccountsRestResponse.accounts().stream()
-            .map(Account::getId)
+        List<String> accountIds = getAccountsRestResponse.getAccounts().stream()
+            .map(AccountResponse::getId)
             .toList();
 
         assertThat(accountIds).doesNotHaveDuplicates();

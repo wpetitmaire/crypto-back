@@ -1,12 +1,14 @@
 package fr.willy.cryptoback.accounts.infrastructure.output.rest.model;
 
-import fr.willy.cryptoback.accounts.domain.entity.Account;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public record GetAccountsRestResponse(
-    LocalDateTime retrieveDate,
-    List<Account> accounts
-) {
+@Builder
+@Getter
+public class GetAccountsRestResponse {
+    private LocalDateTime retrieveDate;
+    private List<AccountResponse> accounts;
 }
