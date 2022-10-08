@@ -4,12 +4,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
+@Slf4j
 @Getter
 @Accessors(fluent = true)
 @NoArgsConstructor
@@ -29,6 +31,7 @@ public class AccountEntity {
     private String currency;
     private String name;
     private String provider;
+    @Column(precision = 30, scale = 10)
     private BigDecimal balance;
     private BigDecimal price;
     private int exponent;
@@ -41,6 +44,9 @@ public class AccountEntity {
         BigDecimal price,
         int exponent
     ) {
+
+        log.info("balance : {}", balance);
+
         this.currency = currency;
         this.name = name;
         this.provider = provider;
