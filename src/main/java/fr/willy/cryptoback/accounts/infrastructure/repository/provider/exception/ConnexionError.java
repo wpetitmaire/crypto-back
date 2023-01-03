@@ -1,4 +1,4 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.exception;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.exception;
 
 import lombok.extern.log4j.Log4j2;
 

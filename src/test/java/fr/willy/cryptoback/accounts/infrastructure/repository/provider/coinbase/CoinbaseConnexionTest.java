@@ -1,6 +1,6 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase;
 
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.entity.AccountFomCBEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

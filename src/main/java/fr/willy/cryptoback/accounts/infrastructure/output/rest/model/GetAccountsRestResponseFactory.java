@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.toList;
 
 public class GetAccountsRestResponseFactory {
 
-    public static GetAccountsRestResponse construct(List<Account> domainAccounts) {
+    public static GetAccountsRestResponse fromDomain(List<Account> domainAccounts) {
         return GetAccountsRestResponse.builder()
             .retrieveDate(LocalDateTime.now())
             .accounts(

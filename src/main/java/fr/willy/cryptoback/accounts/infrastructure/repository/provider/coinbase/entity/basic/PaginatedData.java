@@ -1,4 +1,4 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.basic;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.entity.basic;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

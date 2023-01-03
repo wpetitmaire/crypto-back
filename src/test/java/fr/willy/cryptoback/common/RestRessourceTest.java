@@ -6,9 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import fr.willy.cryptoback.CryptobackApplication;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.CoinbaseConnexion;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.CoinbasePrice;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.CoinbaseConnexion;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.CoinbasePrice;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.entity.AccountFomCBEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import static fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.enums.CoinbaseRessource.ACCOUNTS;
+import static fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.enums.CoinbaseRessource.ACCOUNTS;
 
 @SpringBootTest(classes = CryptobackApplication.class)
 @AutoConfigureMockMvc

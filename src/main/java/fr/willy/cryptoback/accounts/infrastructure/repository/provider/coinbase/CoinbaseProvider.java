@@ -1,10 +1,10 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase;
 
-import fr.willy.cryptoback.accounts.infrastructure.repository.PostgreAccountRepository;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.AccountApi;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.AccountFomCBEntity;
+import fr.willy.cryptoback.accounts.domain.enums.Provider;
 import fr.willy.cryptoback.accounts.infrastructure.repository.entity.AccountEntity;
-import lombok.Getter;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.ProviderApi;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.entity.AccountFomCBEntity;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.register.service.ProviderRegisterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -14,20 +14,17 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.enums.CoinbaseRessource.ACCOUNTS;
+import static fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.enums.CoinbaseRessource.ACCOUNTS;
 import static java.math.BigDecimal.ZERO;
 
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class AccountApiCoinbase implements AccountApi {
+public class CoinbaseProvider implements ProviderApi {
 
-    private final PostgreAccountRepository postgreAccountRepository;
+    private final ProviderRegisterService providerRegisterService;
     private final CoinbaseConnexion coinbaseConnexion;
     private final CoinbasePrice coinbasePrice;
-
-    @Getter
-    private final String providerName = "coinbase";
 
     private AccountEntity transformToDomainObject(AccountFomCBEntity accountFomCBEntity) {
 
@@ -48,7 +45,7 @@ public class AccountApiCoinbase implements AccountApi {
     @PostConstruct
     public void onStart() {
         log.info("-> onstart");
-        postgreAccountRepository.addAccountApi(this);
+        providerRegisterService.register(Provider.COINBASE, this);
     }
 
     @Override

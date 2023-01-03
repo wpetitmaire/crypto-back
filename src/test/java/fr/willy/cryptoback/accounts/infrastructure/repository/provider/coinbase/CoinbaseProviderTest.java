@@ -1,4 +1,4 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase;
 
 import fr.willy.cryptoback.CryptobackApplication;
 import fr.willy.cryptoback.accounts.infrastructure.repository.entity.AccountEntity;
@@ -17,17 +17,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CryptobackApplication.class)
-class AccountApiCoinbaseTest extends RestRessourceTest {
+class CoinbaseProviderTest extends RestRessourceTest {
 
     @Autowired
-    private AccountApiCoinbase accountApiCoinbase;
+    private CoinbaseProvider coinbaseProvider;
 
     @Test
     public void should_transform_coinbase_objects_to_domain_objects() {
 
         mockGetPaginationAccountsFromCB();
 
-        List<AccountEntity> actual = accountApiCoinbase.importAccounts();
+        List<AccountEntity> actual = coinbaseProvider.importAccounts();
         assertThat(actual)
             .hasSize(3);
     }

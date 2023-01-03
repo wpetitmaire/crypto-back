@@ -1,4 +1,4 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.enums;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.enums;
 
 import lombok.Getter;
 import lombok.experimental.Accessors;

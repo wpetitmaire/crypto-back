@@ -1,11 +1,11 @@
-package fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase;
+package fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.coinbase.entity.basic.PaginatedData;
-import fr.willy.cryptoback.accounts.infrastructure.repository.api.exception.ConnexionError;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.coinbase.entity.basic.PaginatedData;
+import fr.willy.cryptoback.accounts.infrastructure.repository.provider.exception.ConnexionError;
 import fr.willy.cryptoback.helper.gsonadapter.GsonLocalDateTime;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.codec.binary.Hex;
